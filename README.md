@@ -14,7 +14,8 @@ L'application est divisée en trois principaux services qui communiquent via un 
 
 Voici un diagramme représentant l'architecture de l'application :
 
-![Diagramme d'Architecture](chemin/vers/diagramme-architecture.png)
+![44](https://github.com/user-attachments/assets/d971f595-6a23-4ac9-b990-b202c799aa58)
+
 
 ---
 
