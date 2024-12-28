@@ -227,8 +227,11 @@ volumes:
 Les contributions sont les bienvenues ! Si vous souhaitez participer, veuillez suivre les consignes décrites dans le fichier CONTRIBUTING.md.
 
 ### Contributeurs
-- **Nom du contributeur 1** : Badr Korichi
-- **Nom du contributeur 2** : Salma Jalat
+- **Nom du contributeur 1** : Badr Korichi <Badr.korichi578@gmail.com>
+- **Nom du contributeur 2** : Salma Jalat <salma.jalat03@gmail.com>
+
+### Démonstration Vidéo:
+
 
 ## Conclusion
 
