@@ -1,229 +1,234 @@
 # City Pollution Map - README
 
-## Introduction
+Ce projet utilise Docker Compose pour configurer et gérer une application complète avec une base de données MySQL, un backend Spring Boot, et un frontend React. Voici une explication détaillée de chaque service, des étapes pour configurer le projet, ainsi qu'une vue d'ensemble des technologies utilisées et de l'architecture.
 
-City Pollution Map est une application interactive qui permet de suivre et de visualiser la pollution atmosphérique en temps réel, avec un accent sur la région d'El Jadida au Maroc. Elle fournit des informations sur l'indice de qualité de l'air (AQI), des prévisions sur trois jours, un historique des données, et des notifications en temps réel.
+---
 
-## Objectifs
+## Vue d'ensemble de l'architecture et des technologies
 
-- Visualisation des données de pollution en temps réel.
-- Suivi précis des indices de qualité de l'air (AQI).
-- Prévisions de pollution sur trois jours.
-- Historique des données pour analyse des tendances.
-- Personnalisation avec gestion des villes favorites.
-- Notifications en temps réel en cas de dégradation de la qualité de l'air.
+### Architecture
+L'application est divisée en trois principaux services qui communiquent via un réseau Docker :
+- **Base de données** : MySQL pour la gestion des données.
+- **Backend** : Une API REST développée avec Spring Boot.
+- **Frontend** : Une interface utilisateur développée en ReactJS.
 
-## Architecture et Technologies
+Voici un diagramme représentant l'architecture de l'application :
 
-### Vue d'ensemble
+![Diagramme d'Architecture](chemin/vers/diagramme-architecture.png)
 
-L'application suit une architecture modulaire et scalable :
+---
 
-- *Frontend* : Développé avec React 18 et Material-UI pour des interfaces modernes, Leaflet pour les cartes interactives, SockJS pour WebSockets, et Axios pour les requêtes HTTP.
-- *Backend* : Basé sur Spring Boot 3, avec Spring Security et JWT pour l'authentification, Spring WebSocket pour la communication en temps réel, et Spring Data JPA pour la gestion des données.
-- *Base de données et Cache* : MySQL pour le stockage persistant et Redis pour le cache rapide.
-- *Services externes* : OpenWeatherMap pour les données de pollution, services de géocodage pour la localisation et envoi de notifications.
+### Technologies utilisées
 
-### Diagramme d'architecture
+| Composant         | Technologie        |
+|-------------------|--------------------|
+| Base de données   | MySQL 8.0         |
+| Backend           | Spring Boot       |
+| Frontend          | ReactJS           |
+| Conteneurisation  | Docker & Docker Compose |
 
-#### Structure du projet
+---
+
+## Structure du projet
+
+Le projet est organisé en trois répertoires principaux :
 
 ```plaintext
-Directory structure:
-└── Baadr003-ExamFinalJee/
-    ├── .dockerignore
-    ├── Front/
-    │   ├── .gitignore
-    │   ├── public/
-    │   │   ├── manifest.json
-    │   │   ├── index.html
-    │   │   └── robots.txt
-    │   ├── package.json
-    │   ├── .dockerignore
-    │   ├── Dockerfile
-    │   ├── package-lock.json
-    │   ├── README.md
-    │   └── src/
-    │       ├── setupTests.js
-    │       ├── services/
-    │       │   ├── favoriteService.js
-    │       │   ├── authService.js
-    │       │   ├── websocketService.js
-    │       │   └── api.js
-    │       ├── index.css
-    │       ├── components/
-    │       │   ├── ProtectedRoute.js
-    │       │   ├── CitySearch.js
-    │       │   ├── Map.js
-    │       │   ├── EditProfileDialog.js
-    │       │   ├── auth/
-    │       │   │   └── AuthPage.js
-    │       │   ├── PasswordResetDialog.js
-    │       │   ├── PollutionTabs.js
-    │       │   ├── UserProfile.js
-    │       │   ├── layout/
-    │       │   │   └── MainLayout.js
-    │       │   ├── FavoritesList.js
-    │       │   ├── CustomNotification.js
-    │       │   ├── EmailVerificationDialog.js
-    │       │   └── NotificationPreferences.js
-    │       ├── theme.js
-    │       ├── styles/
-    │       │   └── global.css
-    │       ├── App.js
-    │       ├── reportWebVitals.js
-    │       ├── pages/
-    │       │   ├── TestAlerts.js
-    │       │   └── MainPage.js
-    │       ├── App.css
-    │       ├── App.test.js
-    │       ├── index.js
-    │       └── utils/
-    │           ├── authUtils.js
-    │           ├── aqiUtils.js
-    │           ├── sessionUtils.js
-    │           └── constants.js
-    ├── Exman-1/
-    │   ├── .vscode/
-    │   │   ├── settings.json
-    │   │   └── launch.json
-    │   ├── .dockerignore
-    │   └── demo/
-    │       ├── mvnw.cmd
-    │       ├── .gitignore
-    │       ├── .gitattributes
-    │       ├── mvnw
-    │       ├── pom.xml
-    │       ├── .mvn/
-    │       │   └── wrapper/
-    │       │       └── maven-wrapper.properties
-    │       ├── Dockerfile
-    │       └── src/
-    │           └── main/
-    │               ├── resources/
-    │               │   ├── application.properties
-    │               │   ├── ehcache.xml
-    │               │   ├── templates/
-    │               │   │   ├── alert-email.html
-    │               │   │   ├── verification-email.html
-    │               │   │   └── reset-password-email.html
-    │               │   └── message_fr.properties
-    │               └── java/
-    │                   └── com/
-    │                       └── pollu/
-    │                           └── demo/
-    │                               ├── dto/
-    │                               │   ├── UserProfileUpdateDTO.java
-    │                               │   ├── AlertMessage.java
-    │                               │   ├── UserPreferencesDTO.java
-    │                               │   ├── UserDetailsDTO.java
-    │                               │   ├── FavoriteCityDTO.java
-    │                               │   ├── UserDTO.java
-    │                               │   ├── AuthRequestDTO.java
-    │                               │   ├── AuthResponseDTO.java
-    │                               │   ├── PollutionDTO.java
-    │                               │   ├── SimulateAlertRequest.java
-    │                               │   ├── BaseResponseDTO.java
-    │                               │   ├── VerificationDTO.java
-    │                               │   └── PasswordResetDTO.java
-    │                               ├── services/
-    │                               │   ├── EmailService.java
-    │                               │   ├── AlertService.java
-    │                               │   ├── UserService.java
-    │                               │   ├── PollutionService.java
-    │                               │   ├── EmailTestService.java
-    │                               │   └── FavoriteCityService.java
-    │                               ├── repositories/
-    │                               │   ├── FavoriteCityRepository.java
-    │                               │   ├── AlertHistoryRepository.java
-    │                               │   └── UserRepository.java
-    │                               ├── entities/
-    │                               │   ├── AlertHistory.java
-    │                               │   ├── AlertPriority.java
-    │                               │   ├── FavoriteCity.java
-    │                               │   ├── Role.java
-    │                               │   └── User.java
-    │                               ├── controller/
-    │                               │   ├── FavoriteCityController.java
-    │                               │   ├── EmailTestController.java
-    │                               │   ├── AlertController.java
-    │                               │   ├── CacheController.java
-    │                               │   ├── AuthController.java
-    │                               │   └── PollutionController.java
-    │                               ├── DemoApplication.java
-    │                               └── config/
-    │                                   ├── WebSocketConfig.java
-    │                                   ├── SecurityConfig.java
-    │                                   ├── OpenAPIConfig.java
-    │                                   ├── CacheConfig.java
-    │                                   └── EmailConfig.java
-    └── docker-compose.yml
-
-
-
-
-
+.
+├── docker-compose.yml
+├── Exman-1/demo       # Code source du backend
+├── Front              # Code source du frontend
+├── mysql-data         # Volume pour la persistance des données MySQL
 ```
-### Diagramme de classe
 
+---
 
+## Fonctionnalités
+
+### Fonctionnalités principales
+
+- **Gestion des données environnementales** :
+  - Enregistrement et gestion des données dans une base MySQL.
+- **API Backend** :
+  - CRUD complet pour les entités gérées.
+  - Intégration avec l'API OpenWeatherMap pour récupérer des données météorologiques.
+- **Interface utilisateur** :
+  - Tableau de bord interactif pour afficher et gérer les données.
+- **Conteneurisation** :
+  - Déploiement simplifié à l'aide de Docker Compose.
+
+### Fonctionnalités supplémentaires
+
+- Santé des services surveillée par des healthchecks.
+- Persistance des données grâce à un volume Docker.
+
+---
+
+## Structure des Services
+
+### MySQL
+```yaml
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: pollution-db
+    restart: always
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_DATABASE: pollution
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 5s
+      retries: 10
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - pollution-network
+```
+
+#### Description
+- **Image** : `mysql:8.0`
+- **Nom du conteneur** : `pollution-db`
+- **Ports exposés** : `3306` (local) vers `3306` (conteneur).
+- **Volume** : `mysql-data` pour persister les données.
+- **Réseau** : `pollution-network`.
+
+### Backend
+```yaml
+  backend:
+    build: 
+      context: ./Exman-1/demo
+      dockerfile: Dockerfile
+    container_name: pollution-backend
+    restart: always
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
+      SPRING_PROFILES_ACTIVE: debug
+      SPRING_JPA_SHOW_SQL: "true"
+      LOGGING_LEVEL_ROOT: DEBUG
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/pollution?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: ""
+      OPENWEATHERMAP_API_KEY: dc9e1a277550ae28ae253f49934f8338
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT: org.hibernate.dialect.MySQLDialect
+      SPRING_MVC_PATHMATCH_MATCHING_STRATEGY: ANT_PATH_MATCHER
+    ports:
+      - "8081:8080"
+    networks:
+      - pollution-network
+```
+
+#### Description
+- **Chemin de construction** : `./Exman-1/demo`.
+- **Nom du conteneur** : `pollution-backend`.
+- **Ports exposés** : `8081` (local) vers `8080` (conteneur).
+- **Variables d'environnement** :
+  - `SPRING_PROFILES_ACTIVE`, `SPRING_JPA_SHOW_SQL`, `SPRING_DATASOURCE_URL`, etc.
+  - Clé API OpenWeatherMap : `dc9e1a277550ae28ae253f49934f8338`.
+- **Réseau** : `pollution-network`.
+
+### Frontend
+```yaml
+  frontend:
+    build:
+      context: ./Front
+      dockerfile: Dockerfile
+    container_name: pollution-frontend
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      REACT_APP_API_URL: http://localhost:8081
+    networks:
+      - pollution-network
+```
+
+#### Description
+- **Chemin de construction** : `./Front`.
+- **Nom du conteneur** : `pollution-frontend`.
+- **Ports exposés** : `3000` (local) vers `3000` (conteneur).
+- **Variables d'environnement** : `REACT_APP_API_URL` pour l'URL de l'API backend.
+- **Réseau** : `pollution-network`.
+
+---
+
+## Réseaux
+```yaml
+networks:
+  pollution-network:
+    driver: bridge
+```
+- **Type de réseau** : `bridge`.
+
+---
+
+## Volumes
+```yaml
+volumes:
+  mysql-data:
+```
+- **Volume** : `mysql-data` pour la persistance des données MySQL.
+
+---
+
+## Instructions pour l'Utilisation
+
+### Prérequis
+- Docker et Docker Compose doivent être installés sur votre machine.
+
+### Étapes
+1. Clonez le dépôt contenant ce fichier Docker Compose.
+2. Naviguez dans le répertoire du projet.
+3. Exécutez la commande suivante pour démarrer les services :
+   ```bash
+   docker-compose up --build
+   ```
+4. Accédez aux services :
+   - Backend : [http://localhost:8081](http://localhost:8081)
+   - Frontend : [http://localhost:3000](http://localhost:3000)
+
+---
+
+## Diagramme de Classe
 
 
 ![image](https://github.com/user-attachments/assets/2701f54b-eaf8-4d81-b1b4-b020595de966)
 
-           
 
+---
 
+## Notes
+- Le service `backend` dépend de la disponibilité du service `mysql`.
+- Assurez-vous que la clé API OpenWeatherMap est valide.
+- Pour stopper les services, utilisez :
+  ```bash
+  docker-compose down
+  ```
+- Les données MySQL sont persistées dans le volume `mysql-data`.
 
-## Fonctionnalités
+---
 
-### Système d'authentification
-- Utilisation de JWT pour sécuriser les sessions utilisateur.
-- Points d'entrée publics pour l'inscription et la connexion.
-- Sécurisation des routes sensibles avec des règles d'autorisation strictes.
+## Problèmes Courants
+- Si le conteneur `mysql` ne démarre pas correctement, vérifiez les journaux :
+  ```bash
+  docker logs pollution-db
+  ```
+- Assurez-vous que le port 3306 n'est pas utilisé par un autre service sur votre machine.
 
-### Visualisation interactive
-- Carte interactive avec Leaflet pour afficher les indices de pollution.
-- Fonctionnalités de recherche, localisation et ajout de favoris.
+---
 
-### Notifications en temps réel
-- Intégration des WebSockets avec STOMP pour des alertes instantanées.
-- Filtrage des messages entrants pour prévenir les injections malveillantes.
+## Contribution et Contributeurs
 
-### Historique et prévisions
-- Données historiques accessibles pour chaque ville.
-- Prévisions sur plusieurs jours.
+Les contributions sont les bienvenues ! Si vous souhaitez participer, veuillez suivre les consignes décrites dans le fichier CONTRIBUTING.md.
 
-### Modèle de données
-
-Le modèle de données inclut :
-- Utilisateurs et leurs préférences.
-- Données de pollution et villes favorites.
-- Historique des alertes et configuration des notifications.
-
-## Sécurité
-
-- *Authentification JWT* : Validation des tokens pour sécuriser les requêtes.
-- *Protection des routes* : Accès réservé aux utilisateurs authentifiés.
-- *Validation des données* : Annotations telles que @NotNull et @Email pour garantir l'intégrité.
-- *Gestion des erreurs* : Gestion centralisée des exceptions avec un GlobalExceptionHandler.
-- *CORS* : Configuration pour permettre les échanges sécurisés entre frontend et backend.
-- *Sécurité des WebSockets* : Contrôle des connexions via JWT et filtrage des messages.
-
-## Backend
-
-- *Architecture* : Suivant une structure en couches claire.
-- *Contrôleurs* : Gestion des points d'entrée API REST.
-- *Services* : Logique métier centralisée.
-- *Repositories* : Interaction avec la base de données.
-- *DTOs* : Transfert des données entre les couches.
-- *Configurations* : Gérer la sécurité, WebSockets, cache, et documentation API.
-
-## Frontend
-
-- *Architecture modulaire* : Organisation en composants React distincts.
-- *Carte interactive* : Visualisation dynamique et marqueurs détaillés.
-- *Tableau de bord* : Gestion des données en temps réel, historique et favoris.
+### Contributeurs
+- **Nom du contributeur 1** : Badr Korichi
+- **Nom du contributeur 2** : Salma Jalat
 
 ## Conclusion
 
