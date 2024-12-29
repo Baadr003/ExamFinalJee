@@ -1,5 +1,22 @@
 # City Pollution Map - README
 
+# Table des matières
+
+- Introduction
+- Vue d'ensemble de l'architecture et des technologies
+- Structure du projet
+- Fonctionnalités
+- Structure des Services
+- Réseaux
+- Volumes
+- Instructions pour l'utilisation
+- Diagramme de Classe
+- Notes
+- Problèmes Courants
+- Contribution et Contributeurs
+- Démonstration Vidéo
+- Conclusion
+
 Ce projet utilise Docker Compose pour configurer et gérer une application complète avec une base de données MySQL, un backend Spring Boot, et un frontend React. Voici une explication détaillée de chaque service, des étapes pour configurer le projet, ainsi qu'une vue d'ensemble des technologies utilisées et de l'architecture.
 
 ---
