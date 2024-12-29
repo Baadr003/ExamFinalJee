@@ -17,6 +17,7 @@
 - Démonstration Vidéo
 - Conclusion
 
+# Introduction
 Ce projet utilise Docker Compose pour configurer et gérer une application complète avec une base de données MySQL, un backend Spring Boot, et un frontend React. Voici une explication détaillée de chaque service, des étapes pour configurer le projet, ainsi qu'une vue d'ensemble des technologies utilisées et de l'architecture.
 
 ---
