@@ -6,6 +6,7 @@
 - [Vue d'ensemble de l'architecture et des technologies](#vue-densemble-de-larchitecture-et-des-technologies)
 - [Diagramme de Classe](#diagramme-de-classe)
 - [Structure du projet](#structure-du-projet)
+- [Docker image ](#Docker-image)
 - [Fonctionnalités](#fonctionnalités)
 - [Structure des Services](#structure-des-services)
 - [Instructions pour l'Utilisation](#instructions-pour-lutilisation)
