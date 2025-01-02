@@ -59,7 +59,6 @@ Le projet est organisé en trois répertoires principaux :
 
 ---
 plaintext
-.
 ├── docker-compose.yml
 ├── Exman-1/demo       # Code source du backend
 ├── Front              # Code source du frontend
