@@ -290,6 +290,7 @@ Nous accueillons les contributions de chacun avec plaisir et nous apprécions vo
 
 ## Démonstration Vidéo:
 
+Cliquez sur le lien ci-dessous pour regarder une vidéo de démonstration :
 
 https://github.com/user-attachments/assets/261564c0-fe16-4d77-8519-6e228181fbae
 
