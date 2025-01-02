@@ -53,6 +53,14 @@ Voici un diagramme représentant l'architecture de l'application :
 
 ---
 
+## Diagramme de Classe
+
+
+![image](https://github.com/user-attachments/assets/2701f54b-eaf8-4d81-b1b4-b020595de966)
+
+
+---
+
 ## Structure du projet
 
 Le projet est organisé en trois répertoires principaux :
@@ -250,14 +258,6 @@ bash
 4. Accédez aux services :
    - Backend : [http://localhost:8081](http://localhost:8081)
    - Frontend : [http://localhost:3000](http://localhost:3000)
-
----
-
-## Diagramme de Classe
-
-
-![image](https://github.com/user-attachments/assets/2701f54b-eaf8-4d81-b1b4-b020595de966)
-
 
 ---
 
