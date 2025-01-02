@@ -1,33 +1,24 @@
-# City Pollution Map - README
+# City Pollution  - README
 
 # Table des matières
 
 - [Introduction](#introduction)
 - [Vue d'ensemble de l'architecture et des technologies](#vue-densemble-de-larchitecture-et-des-technologies)
-  - [Architecture](#architecture)
-  - [Technologies utilisées](#technologies-utilisées)
 - [Structure du projet](#structure-du-projet)
 - [Fonctionnalités](#fonctionnalités)
-  - [Fonctionnalités principales](#fonctionnalités-principales)
-  - [Fonctionnalités supplémentaires](#fonctionnalités-supplémentaires)
 - [Structure des Services](#structure-des-services)
-  - [MySQL](#mysql)
-  - [Backend](#backend)
-  - [Frontend](#frontend)
 - [Réseaux](#réseaux)
 - [Volumes](#volumes)
 - [Instructions pour l'Utilisation](#instructions-pour-lutilisation)
-  - [Prérequis](#prérequis)
-  - [Étapes](#étapes)
 - [Diagramme de Classe](#diagramme-de-classe)
 - [Notes](#notes)
 - [Problèmes Courants](#problèmes-courants)
 - [Contribution et Contributeurs](#contribution-et-contributeurs)
-  - [Contributeurs](#contributeurs)
 - [Démonstration Vidéo](#démonstration-vidéo)
 - [Conclusion](#conclusion)
 
 # Introduction
+City Pollution Map est une application interactive qui permet de suivre et de visualiser la pollution atmosphérique en temps réel, avec un accent sur la région d'El Jadida au Maroc. Elle fournit des informations sur l'indice de qualité de l'air (AQI), des prévisions sur trois jours, un historique des données, et des notifications en temps réel.
 Ce projet utilise Docker Compose pour configurer et gérer une application complète avec une base de données MySQL, un backend Spring Boot, et un frontend React. Voici une explication détaillée de chaque service, des étapes pour configurer le projet, ainsi qu'une vue d'ensemble des technologies utilisées et de l'architecture.
 
 ---
