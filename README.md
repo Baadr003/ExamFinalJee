@@ -27,13 +27,13 @@ Ce projet utilise Docker Compose pour configurer et gérer une application compl
 
 ---
 
-## Vue d'ensemble de l'architecture et des technologies
+## 💡Vue d'ensemble de l'architecture et des technologies
 
 ### Architecture
 L'application est divisée en trois principaux services qui communiquent via un réseau Docker :
-- **Base de données** : MySQL pour la gestion des données.
-- **Backend** : Une API REST développée avec Spring Boot.
-- **Frontend** : Une interface utilisateur développée en ReactJS.
+- **🛢️Base de données** : MySQL pour la gestion des données.
+- **☕Backend** : Une API REST développée avec Spring Boot.
+- **⚛️ Frontend** : Une interface utilisateur développée en ReactJS.
 
 Voici un diagramme représentant l'architecture de l'application :
 
