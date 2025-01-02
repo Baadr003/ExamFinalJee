@@ -20,7 +20,9 @@
 # Introduction
 City Pollution Map est une application interactive qui permet de suivre et de visualiser la pollution atmosphérique en temps réel, avec un accent sur la région d'El Jadida au Maroc. Elle fournit des informations sur l'indice de qualité de l'air (AQI), des prévisions sur trois jours, un historique des données, et des notifications en temps réel.
 Ce projet utilise Docker Compose pour configurer et gérer une application complète avec une base de données MySQL, un backend Spring Boot, et un frontend React. Voici une explication détaillée de chaque service, des étapes pour configurer le projet, ainsi qu'une vue d'ensemble des technologies utilisées et de l'architecture.
-![Uploading WhatsApp Image 2025-01-02 à 20.35.12_33d927c3.jpg…]()
+
+
+![WhatsApp Image 2025-01-02 à 20 35 12_a5397920](https://github.com/user-attachments/assets/594cc6b2-0705-4da1-a376-587b91e36abf)
 
 
 ---
