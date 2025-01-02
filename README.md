@@ -68,12 +68,26 @@ Le projet est organisé en trois répertoires principaux :
 
 ---
 
-## Fonctionnalités
+## ⚙️Fonctionnalités
 
 ### Fonctionnalités principales
 
-- **Gestion des données environnementales** :
-  - Enregistrement et gestion des données dans une base MySQL.
+- **Système d'authentification** :
+- Utilisation de JWT pour sécuriser les sessions utilisateur.
+- Points d'entrée publics pour l'inscription et la connexion.
+- Sécurisation des routes sensibles avec des règles d'autorisation strictes.
+-L'image ci-dessous montre une interface de connexion avec champs "Username" et "Password", bouton "Login", et option "Mot de passe oublié ?". Les points d'entrée publics pour l'inscription et la connexion (boutons "Login" et "Register") permettent un accès de base
+![image](https://github.com/user-attachments/assets/2fea4392-4797-420e-8c9d-2f2d81d03f01)
+
+### Visualisation interactive
+- Carte interactive avec Leaflet pour afficher les indices de pollution.
+- Fonctionnalités de recherche, localisation et ajout de favoris.
+-Possibilité de télécharger un rapport détaillé sur la pollution d'une ville en format PDF.
+![image](https://github.com/user-attachments/assets/9a0e9a58-4c6c-472e-86c3-c7b6aa26d4f1) ![image](https://github.com/user-attachments/assets/51b0b81a-f0f9-44cb-877b-8d84bb366ec9)
+
+
+
+
 - **API Backend** :
   - CRUD complet pour les entités gérées.
   - Intégration avec l'API OpenWeatherMap pour récupérer des données météorologiques.
