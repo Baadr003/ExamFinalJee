@@ -85,12 +85,21 @@ Le projet est organisé en trois répertoires principaux :
 - Carte interactive avec Leaflet pour afficher les indices de pollution.
 - Fonctionnalités de recherche, localisation et ajout de favoris.
 - Possibilité de télécharger un rapport détaillé sur la pollution d'une ville en format PDF.
-
+- Classement dynamique : À côté de la carte interactive, un classement dynamique des villes les plus polluées au monde est mis à jour toutes les heures.
 ![image](https://github.com/user-attachments/assets/9a0e9a58-4c6c-472e-86c3-c7b6aa26d4f1) 
 ![image](https://github.com/user-attachments/assets/51b0b81a-f0f9-44cb-877b-8d84bb366ec9)
 
+### Notifications en temps réel
+- Intégration des WebSockets avec STOMP pour des alertes instantanées.
+- Filtrage des messages entrants pour prévenir les injections malveillantes.
 
+![image](https://github.com/user-attachments/assets/dc6aeb56-f231-42b0-b473-13da47e535a2)
 
+### Historique et prévisions
+- Données historiques accessibles pour chaque ville.
+- Prévisions sur plusieurs jours.
+![WhatsApp Image 2025-01-02 à 21 38 24_fd1e2eeb](https://github.com/user-attachments/assets/236fa098-005c-433f-a3b3-66b31889f856)
+![WhatsApp Image 2025-01-02 à 21 36 25_3d84647a](https://github.com/user-attachments/assets/3e2e4275-4d79-454e-bfe9-edc134c507bf)
 
 - **API Backend** :
   - CRUD complet pour les entités gérées.
