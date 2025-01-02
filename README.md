@@ -72,6 +72,76 @@ Le projet est organisé en trois répertoires principaux :
 ```
 
 ---
+## Docker image 
+
+```plaintext
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: pollution-db
+    restart: always
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_DATABASE: pollution
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 5s
+      retries: 10
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - pollution-network
+
+  backend:
+    build: 
+      context: ./Exman-1/demo
+      dockerfile: Dockerfile
+    container_name: pollution-backend
+    restart: always
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
+      SPRING_PROFILES_ACTIVE: debug
+      SPRING_JPA_SHOW_SQL: "true"
+      LOGGING_LEVEL_ROOT: DEBUG
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/pollution?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: ""
+      OPENWEATHERMAP_API_KEY: dc9e1a277550ae28ae253f49934f8338
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT: org.hibernate.dialect.MySQLDialect
+      SPRING_MVC_PATHMATCH_MATCHING_STRATEGY: ANT_PATH_MATCHER
+    ports:
+      - "8081:8080"
+    networks:
+      - pollution-network
+
+  frontend:
+    build:
+      context: ./Front
+      dockerfile: Dockerfile
+    container_name: pollution-frontend
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      REACT_APP_API_URL: http://localhost:8081
+    networks:
+      - pollution-network
+
+networks:
+  pollution-network:
+    driver: bridge
+
+volumes:
+  mysql-data:
+```
+---
 
 ## ⚙️Fonctionnalités
 
