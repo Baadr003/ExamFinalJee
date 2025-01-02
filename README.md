@@ -76,6 +76,7 @@ Le projet est organisé en trois répertoires principaux :
 - Utilisation de JWT pour sécuriser les sessions utilisateur.
 - Points d'entrée publics pour l'inscription et la connexion.
 - Sécurisation des routes sensibles avec des règles d'autorisation strictes.
+
 -L'image ci-dessous montre une interface de connexion avec champs "Username" et "Password", bouton "Login", et option "Mot de passe oublié ?". Les points d'entrée publics pour l'inscription et la connexion (boutons "Login" et "Register") permettent un accès de base
 ![image](https://github.com/user-attachments/assets/2fea4392-4797-420e-8c9d-2f2d81d03f01)
 
