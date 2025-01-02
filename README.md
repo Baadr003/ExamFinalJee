@@ -86,7 +86,8 @@ Le projet est organisé en trois répertoires principaux :
 - Fonctionnalités de recherche, localisation et ajout de favoris.
 - Possibilité de télécharger un rapport détaillé sur la pollution d'une ville en format PDF.
 - Classement dynamique : À côté de la carte interactive, un classement dynamique des villes les plus polluées au monde est mis à jour en temps réel.
-![image](https://github.com/user-attachments/assets/9a0e9a58-4c6c-472e-86c3-c7b6aa26d4f1) 
+![WhatsApp Image 2025-01-02 à 21 18 57_f3b0c55c](https://github.com/user-attachments/assets/27dba879-ba8a-4678-b33d-845bc40f39d8)
+ 
 ![image](https://github.com/user-attachments/assets/51b0b81a-f0f9-44cb-877b-8d84bb366ec9)
 
 ### Notifications en temps réel
@@ -98,14 +99,13 @@ Le projet est organisé en trois répertoires principaux :
 ### Historique et prévisions
 - Données historiques accessibles pour chaque ville.
 - Prévisions sur plusieurs jours.
+
 ![WhatsApp Image 2025-01-02 à 21 38 24_fd1e2eeb](https://github.com/user-attachments/assets/236fa098-005c-433f-a3b3-66b31889f856)
 ![WhatsApp Image 2025-01-02 à 21 36 25_3d84647a](https://github.com/user-attachments/assets/3e2e4275-4d79-454e-bfe9-edc134c507bf)
 
 - **API Backend** :
   - CRUD complet pour les entités gérées.
   - Intégration avec l'API OpenWeatherMap pour récupérer des données météorologiques.
-- **Interface utilisateur** :
-  - Tableau de bord interactif pour afficher et gérer les données.
 - **Conteneurisation** :
   - Déploiement simplifié à l'aide de Docker Compose.
 
@@ -113,6 +113,15 @@ Le projet est organisé en trois répertoires principaux :
 
 - Santé des services surveillée par des healthchecks.
 - Persistance des données grâce à un volume Docker.
+
+### Sécurité
+
+- *Authentification JWT* : Validation des tokens pour sécuriser les requêtes.
+- *Protection des routes* : Accès réservé aux utilisateurs authentifiés.
+- *Validation des données* : Annotations telles que @NotNull et @Email pour garantir l'intégrité.
+- *Gestion des erreurs* : Gestion centralisée des exceptions avec un GlobalExceptionHandler.
+- *CORS* : Configuration pour permettre les échanges sécurisés entre frontend et backend.
+- *Sécurité des WebSockets* : Contrôle des connexions via JWT et filtrage des messages.
 
 ---
 
