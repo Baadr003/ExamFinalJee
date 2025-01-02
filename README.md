@@ -282,7 +282,7 @@ bash
 
 ## Contribution et Contributeurs
 
-Les contributions sont les bienvenues ! Si vous souhaitez participer, veuillez suivre les consignes décrites dans le fichier CONTRIBUTING.md.
+Nous accueillons les contributions de chacun avec plaisir et nous apprécions votre aide pour améliorer encore ce projet ! Si vous souhaitez contribuer, veuillez suivre ces directives :
 
 ### Contributeurs
 - **Nom du contributeur 1** : Badr Korichi <Badr.korichi578@gmail.com>
