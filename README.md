@@ -85,7 +85,7 @@ Le projet est organisé en trois répertoires principaux :
 - Carte interactive avec Leaflet pour afficher les indices de pollution.
 - Fonctionnalités de recherche, localisation et ajout de favoris.
 - Possibilité de télécharger un rapport détaillé sur la pollution d'une ville en format PDF.
-- Classement dynamique : À côté de la carte interactive, un classement dynamique des villes les plus polluées au monde est mis à jour toutes les heures.
+- Classement dynamique : À côté de la carte interactive, un classement dynamique des villes les plus polluées au monde est mis à jour en temps réel.
 ![image](https://github.com/user-attachments/assets/9a0e9a58-4c6c-472e-86c3-c7b6aa26d4f1) 
 ![image](https://github.com/user-attachments/assets/51b0b81a-f0f9-44cb-877b-8d84bb366ec9)
 
