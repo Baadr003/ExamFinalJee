@@ -27,7 +27,7 @@ Ce projet utilise Docker Compose pour configurer et gérer une application compl
 
 ## 💡Vue d'ensemble de l'architecture et des technologies
 
-### Architecture
+### 🏗️ Architecture
 L'application est divisée en trois principaux services qui communiquent via un réseau Docker :
 - **🛢️Base de données** : MySQL pour la gestion des données.
 - **☕Backend** : Une API REST développée avec Spring Boot.
@@ -190,7 +190,7 @@ volumes:
 - Santé des services surveillée par des healthchecks.
 - Persistance des données grâce à un volume Docker.
 
-### Sécurité
+### 🔐Sécurité
 
 - *Authentification JWT* : Validation des tokens pour sécuriser les requêtes.
 - *Protection des routes* : Accès réservé aux utilisateurs authentifiés.
