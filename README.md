@@ -57,8 +57,8 @@ Voici un diagramme représentant l'architecture de l'application :
 
 Le projet est organisé en trois répertoires principaux :
 
----
-plaintext
+
+```plaintext
 ├── docker-compose.yml
 ├── Exman-1/demo       # Code source du backend
 ├── Front              # Code source du frontend
