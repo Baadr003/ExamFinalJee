@@ -57,6 +57,7 @@ Voici un diagramme représentant l'architecture de l'application :
 
 Le projet est organisé en trois répertoires principaux :
 
+---
 plaintext
 .
 ├── docker-compose.yml
