@@ -34,7 +34,7 @@ const TestAlerts = () => {
   const handleTest = async () => {
     try {
       console.log('Sending test data:', testData);
-      const response = await fetch('http://localhost:8081/api/test/simulate-alert', {
+      const response = await fetch('http://localhost:8080/api/test/simulate-alert', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(testData)

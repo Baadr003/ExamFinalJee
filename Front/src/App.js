@@ -6,6 +6,7 @@ import UserProfile from './components/UserProfile';
 import TestAlerts from './pages/TestAlerts';
 import { checkSession, initSession } from './utils/authUtils';
 import { theme } from './theme';
+import SplashScreen from './components/SplashScreen.js';
 
 const ProtectedRoute = ({ children }) => {
   const { isAuthenticated } = checkSession();
@@ -15,6 +16,7 @@ const ProtectedRoute = ({ children }) => {
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userId, setUserId] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     initSession(setIsAuthenticated, setUserId);
@@ -26,6 +28,18 @@ function App() {
     window.addEventListener('storage', handleStorageChange);
     return () => window.removeEventListener('storage', handleStorageChange);
   }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 4000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return <SplashScreen />;
+  }
 
   return (
     <ThemeProvider theme={theme}>

@@ -270,8 +270,9 @@ const handleResendCode = async (email) => {
     <>
       <AppBar position="static" sx={{ background: 'transparent', boxShadow: 'none' }}>
         <Toolbar>
-          <Typography variant="h6" sx={{ flexGrow: 1, color: '#00fff5' }}>
-            {showProfile ? 'User Profile' : 'Pollution Map'}
+          <Typography variant="h6" sx={{ textAlign: 'center',width: '100%', flexGrow: 1, color: '#00fff5',marginRight: '250px' // Add right margin to shift text
+ }}>
+            {showProfile ? 'User Profile' : "Un regard sur l'air que nous respirons"}
           </Typography>
           {globalIsAuthenticated ? (
             <>
@@ -328,8 +329,8 @@ const handleResendCode = async (email) => {
               <Button 
                 onClick={() => setOpenRegister(true)}
                 sx={{ 
-                  color: '#7928ca',
-                  borderColor: '#7928ca'
+                  color: '#00fff5',
+                  borderColor: '#00fff5'
                 }}
                 variant="outlined"
               >

@@ -25,36 +25,70 @@ export const CITIES = {
     { name: 'Guelmim-Oued Noun', lat: 28.4445, lon: -10.0634 },
     { name: 'Errachidia', lat: 31.9314, lon: -4.4246 },
     { name: 'Figuig', lat: 32.1138, lon: -1.2296 },
-    { name: 'Zagora', lat: 30.3322, lon: -5.8380 }
-    
+    { name: 'Zagora', lat: 30.3322, lon: -5.8380 },
+    { name: 'Meknes', lat: 33.8935, lon: -5.5547 },
+    { name: 'Khouribga', lat: 32.8851, lon: -6.9063 },
+    { name: 'Al Hoceima', lat: 35.2516, lon: -3.9372 },
+    { name: 'Dakhla', lat: 23.7128, lon: -15.9369 },
+    { name: 'Mohammedia', lat: 33.6869, lon: -7.3850 },
+    { name: 'Settat', lat: 33.0016, lon: -7.6198 },
+    { name: 'Berkane', lat: 34.9200, lon: -2.3222 },
+    { name: 'Ksar El Kebir', lat: 35.0004, lon: -5.9043 }
   ],
   SPAIN: [
     { name: 'Madrid', lat: 40.4168, lon: -3.7038 },
     { name: 'Barcelona', lat: 41.3851, lon: 2.1734 },
     { name: 'Valencia', lat: 39.4699, lon: -0.3763 },
     { name: 'Seville', lat: 37.3891, lon: -5.9845 },
-    { name: 'Bilbao', lat: 43.2627, lon: -2.9253 }
+    { name: 'Bilbao', lat: 43.2627, lon: -2.9253 },
+    { name: 'Zaragoza', lat: 41.6488, lon: -0.8891 },
+    { name: 'Málaga', lat: 36.7213, lon: -4.4217 },
+    { name: 'Murcia', lat: 37.9922, lon: -1.1307 },
+    { name: 'Palma', lat: 39.5696, lon: 2.6502 },
+    { name: 'Las Palmas', lat: 28.1235, lon: -15.4366 },
+    { name: 'Granada', lat: 37.1773, lon: -3.5986 },
+    { name: 'Alicante', lat: 38.3452, lon: -0.4815 }
   ],
   FRANCE: [
     { name: 'Paris', lat: 48.8566, lon: 2.3522 },
     { name: 'Marseille', lat: 43.2965, lon: 5.3698 },
     { name: 'Lyon', lat: 45.7640, lon: 4.8357 },
     { name: 'Toulouse', lat: 43.6047, lon: 1.4442 },
-    { name: 'Nice', lat: 43.7102, lon: 7.2620 }
+    { name: 'Nice', lat: 43.7102, lon: 7.2620 },
+    { name: 'Bordeaux', lat: 44.8378, lon: -0.5792 },
+    { name: 'Lille', lat: 50.6292, lon: 3.0573 },
+    { name: 'Rennes', lat: 48.1173, lon: -1.6778 },
+    { name: 'Strasbourg', lat: 48.5734, lon: 7.7521 },
+    { name: 'Montpellier', lat: 43.6107, lon: 3.8767 },
+    { name: 'Nantes', lat: 47.2184, lon: -1.5536 },
+    { name: 'Reims', lat: 49.2577, lon: 4.0319 }
   ],
   ITALY: [
     { name: 'Rome', lat: 41.9028, lon: 12.4964 },
     { name: 'Milan', lat: 45.4642, lon: 9.1900 },
     { name: 'Naples', lat: 40.8518, lon: 14.2681 },
     { name: 'Turin', lat: 45.0703, lon: 7.6869 },
-    { name: 'Florence', lat: 43.7696, lon: 11.2558 }
+    { name: 'Florence', lat: 43.7696, lon: 11.2558 },
+    { name: 'Bologna', lat: 44.4949, lon: 11.3426 },
+    { name: 'Genoa', lat: 44.4056, lon: 8.9463 },
+    { name: 'Venice', lat: 45.4408, lon: 12.3155 },
+    { name: 'Verona', lat: 45.4384, lon: 10.9917 },
+    { name: 'Palermo', lat: 38.1157, lon: 13.3615 },
+    { name: 'Catania', lat: 37.5079, lon: 15.0830 },
+    { name: 'Bari', lat: 41.1171, lon: 16.8719 }
   ],
   PORTUGAL: [
     { name: 'Lisbon', lat: 38.7223, lon: -9.1393 },
     { name: 'Porto', lat: 41.1579, lon: -8.6291 },
     { name: 'Braga', lat: 41.5518, lon: -8.4229 },
     { name: 'Coimbra', lat: 40.2033, lon: -8.4103 },
-    { name: 'Faro', lat: 37.0194, lon: -7.9322 }
+    { name: 'Faro', lat: 37.0194, lon: -7.9322 },
+    { name: 'Funchal', lat: 32.6669, lon: -16.9241 },
+    { name: 'Amadora', lat: 38.7578, lon: -9.2293 },
+    { name: 'Setubal', lat: 38.5244, lon: -8.8882 },
+    { name: 'Aveiro', lat: 40.6405, lon: -8.6538 },
+    { name: 'Viseu', lat: 40.6566, lon: -7.9125 },
+    { name: 'Evora', lat: 38.5714, lon: -7.9135 }
   ]
 };
 

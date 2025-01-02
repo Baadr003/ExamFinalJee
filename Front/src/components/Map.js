@@ -7,6 +7,9 @@ import 'leaflet.heat';
 import { MAP_CENTER, DEFAULT_ZOOM } from '../utils/constants';
 import CitySearch from './CitySearch';
 
+const INITIAL_CENTER = [33.2316, -7.8] // Coordonnées entre Casablanca et El Jadida
+const INITIAL_ZOOM = 7; // Zoom plus proche pour voir cette région
+
 // Configuration des icônes Leaflet
 const configureLeafletIcons = () => {
   delete L.Icon.Default.prototype._getIconUrl;
@@ -50,6 +53,24 @@ const HeatLayer = ({ data }) => {
   return null;
 };
 
+const MapController = ({ selectedCity }) => {
+  const map = useMap();
+  
+  useEffect(() => {
+    if (selectedCity) {
+      map.setView(
+        [selectedCity.coord.lat, selectedCity.coord.lon],
+        12,  // Zoom level pour une ville sélectionnée
+        {
+          animate: true
+        }
+      );
+    }
+  }, [selectedCity, map]);
+  
+  return null;
+};
+
 // Composant pour le contenu du Popup
 const PopupContent = ({ city }) => (
   <>
@@ -85,7 +106,7 @@ const SearchSection = ({ onCitySelect }) => (
 );
 
 // Composant pour la section de carte
-const MapSection = ({ pollutionData, onCitySelect }) => {
+const MapSection = ({ pollutionData, onCitySelect, selectedCity }) => {
   useEffect(() => {
     console.log('PollutionData:', pollutionData); // Debug log
   }, [pollutionData]);
@@ -101,7 +122,11 @@ const MapSection = ({ pollutionData, onCitySelect }) => {
           borderRadius: 4,
         }}
       >
-        <MapContainer center={MAP_CENTER} zoom={DEFAULT_ZOOM} style={{ height: '100%', width: '100%' }}>
+        <MapContainer 
+          center={INITIAL_CENTER} 
+          zoom={INITIAL_ZOOM} 
+          style={{ height: '100%', width: '100%' }}
+        >
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             attribution="&copy; OpenStreetMap contributors"
@@ -120,6 +145,7 @@ const MapSection = ({ pollutionData, onCitySelect }) => {
             </Marker>
           ))}
           {pollutionData && <HeatLayer data={pollutionData} />}
+          <MapController selectedCity={selectedCity} />
         </MapContainer>
       </Paper>
     </Box>
@@ -127,7 +153,7 @@ const MapSection = ({ pollutionData, onCitySelect }) => {
 };
 
 // Composant principal
-const PollutionMap = ({ pollutionData, onCitySelect }) => {
+const PollutionMap = ({ pollutionData, onCitySelect, selectedCity }) => {
   useEffect(() => {
     configureLeafletIcons();
   }, []);
@@ -137,7 +163,7 @@ const PollutionMap = ({ pollutionData, onCitySelect }) => {
       <Box sx={{ display: 'flex', justifyContent: 'center' }}>
         <SearchSection onCitySelect={onCitySelect} />
       </Box>
-      <MapSection pollutionData={pollutionData} onCitySelect={onCitySelect} />
+      <MapSection pollutionData={pollutionData} onCitySelect={onCitySelect} selectedCity={selectedCity} />
     </Box>
   );
 };
