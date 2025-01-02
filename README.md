@@ -64,6 +64,7 @@ Le projet est organisé en trois répertoires principaux :
 ├── Front              # Code source du frontend
 ├── mysql-data         # Volume pour la persistance des données MySQL
 
+```
 
 ---
 
