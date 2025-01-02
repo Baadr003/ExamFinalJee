@@ -49,7 +49,7 @@ Voici un diagramme représentant l'architecture de l'application :
 | 🛢️Base de données   | MySQL 8.0         |
 | ☕Backend           | Spring Boot       |
 |⚛️ Frontend          | ReactJS           |
-| Conteneurisation  | Docker & Docker Compose |
+|🐳⚙️Conteneurisation  | Docker & Docker Compose |
 
 ---
 
