@@ -128,6 +128,8 @@ Le projet est organisé en trois répertoires principaux :
 ## Structure des Services
 
 ### MySQL
+
+```plaintext
 yaml
 services:
   mysql:
@@ -147,7 +149,7 @@ services:
       - mysql-data:/var/lib/mysql
     networks:
       - pollution-network
-
+```
 
 #### Description
 - **Image** : mysql:8.0
@@ -157,6 +159,7 @@ services:
 - **Réseau** : pollution-network.
 
 ### Backend
+```plaintext
 yaml
   backend:
     build: 
@@ -182,7 +185,7 @@ yaml
       - "8081:8080"
     networks:
       - pollution-network
-
+```
 
 #### Description
 - **Chemin de construction** : ./Exman-1/demo.
@@ -194,6 +197,7 @@ yaml
 - **Réseau** : pollution-network.
 
 ### Frontend
+```plaintext
 yaml
   frontend:
     build:
@@ -207,7 +211,7 @@ yaml
       REACT_APP_API_URL: http://localhost:8081
     networks:
       - pollution-network
-
+```
 
 #### Description
 - **Chemin de construction** : ./Front.
@@ -219,23 +223,16 @@ yaml
 ---
 
 ## Réseaux
+```plaintext
 yaml
 networks:
   pollution-network:
     driver: bridge
 
 - **Type de réseau** : bridge.
-
+```
 ---
 
-## Volumes
-yaml
-volumes:
-  mysql-data:
-
-- **Volume** : mysql-data pour la persistance des données MySQL.
-
----
 
 ## Instructions pour l'Utilisation
 
